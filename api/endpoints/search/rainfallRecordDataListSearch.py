@@ -1,5 +1,5 @@
 import os
-from fastapi import HTTPException
+from fastapi import APIRouter, HTTPException
 from azure.storage.blob import BlobServiceClient
 from dotenv import load_dotenv
 from datetime import datetime
@@ -11,6 +11,9 @@ load_dotenv()
 AZURE_CONNECTION_STRING = os.getenv("AZURE_CONNECTION_STRING")
 BLOB_CONTAINER_NAME = os.getenv("BLOB_CONTAINER_NAME")
 
+router = APIRouter()
+
+@router.get("/rainfallRecordDataListSearch", tags=["実績降雨データ一覧検索"])
 def rainfall_record_data_list_search(fromString: str, toString: str, three_digit_code: str, suffix1: str = None, suffix2: str = None):
   try:
     # 取得するディレクトリのパスを構成

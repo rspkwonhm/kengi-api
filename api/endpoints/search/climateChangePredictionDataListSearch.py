@@ -14,6 +14,7 @@ BLOB_CONTAINER_NAME = os.getenv("BLOB_CONTAINER_NAME")
 # ルーターを定義
 router = APIRouter()
 
+@router.get("/climateChangePredictionDataListSearch", tags=["気候変動データ一覧検索"])
 def rainfall_record_data_list_search(fromString: str, toString: str, three_digit_code: str, suffix1: str = None, suffix2: str = None):
   try:
     # 取得するディレクトリのパスを構成

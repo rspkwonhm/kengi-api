@@ -49,7 +49,7 @@ def download_blob(three_digit_code: str, suffix1: str = None, suffix2: str = Non
   except Exception as e:
     raise HTTPException(status_code=500, detail=f"Failed to download blob: {str(e)}")
 
-@router.get("/raindata/{three_digit_code}")
+@router.get("/raindata/{three_digit_code}", tags=["集水域等の流域取得"])
 async def get_files_in_directory(three_digit_code: str):
   # 入力が3桁の数値であることを確認
   if not (three_digit_code.isdigit() and len(three_digit_code) == 3):

@@ -13,7 +13,7 @@ BLOB_CONTAINER_NAME = os.getenv("BLOB_CONTAINER_NAME")
 # ルーターを定義
 router = APIRouter()
 
-@router.get("/watershed")
+@router.get("/watershed", tags=["初期表示の流域を取得"])
 async def get_watershed_geojson():
   try:
     # 取得するファイル名（パスを含む）

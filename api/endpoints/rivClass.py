@@ -16,7 +16,7 @@ router = APIRouter()
 # BlobServiceClientのインスタンスを作成
 blob_service_client = BlobServiceClient.from_connection_string(AZURE_CONNECTION_STRING)
 
-@router.get("/rivClass")
+@router.get("/rivClass", tags=["初期表示の河川を取得"])
 async def get_rivClass_geojson():
   try:
     # 取得するファイル名（パスを含む）

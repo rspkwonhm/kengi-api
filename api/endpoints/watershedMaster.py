@@ -19,7 +19,7 @@ router = APIRouter()
 # BlobServiceClientのインスタンスを作成
 blob_service_client = BlobServiceClient.from_connection_string(AZURE_CONNECTION_STRING)
 
-@router.get("/watershedMaster")
+@router.get("/watershedMaster", tags=["流域マスタを取得"])
 async def get_watershedMaster_geojson():
   try:
     # 取得するファイル名を関数内で指定
